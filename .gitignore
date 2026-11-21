@@ -1,28 +1,11 @@
 # Arquivos compilados
 *.class
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
 # Arquivos de log
 *.log
 hs_err_pid*
 replay_pid*
-
-# BlueJ
-*.ctxt
-
-# Java Mobile Tools
-.mtj.tmp/
-
-# Pacotes
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
 
 # IntelliJ IDEA
 .idea/
