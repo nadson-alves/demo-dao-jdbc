@@ -1,6 +1,8 @@
 Demo DAO JDBC
 
-Projeto desenvolvido durante meus estudos de Java, com o objetivo de praticar a conexão entre aplicações Java e bancos de dados MySQL utilizando JDBC.
+Projeto desenvolvido em Java com o objetivo de praticar a integração com banco de dados MySQL utilizando JDBC e aplicar o padrão de arquitetura DAO (Data Access Object).
+
+A aplicação permite realizar operações de consulta, inserção, atualização e exclusão de vendedores, além de trabalhar com relacionamentos entre vendedores e departamentos.
 
 Tecnologias utilizadas
 
@@ -14,67 +16,91 @@ MySQL Connector/J
 
 IntelliJ IDEA
 
-Estrutura do projeto
+Git e GitHub
 
-demojdbc/
-├── src/
-│   ├── application/
-│   │   └── Program.java
-│   └── db/
-│       ├── DB.java
-│       ├── DbException.java
-│       └── DbIntegrityException.java
-├── .gitignore
-└── README.md
+Funcionalidades
 
-Funcionalidades e conceitos praticados
+Conexão com banco de dados MySQL utilizando JDBC.
 
-Conexão com banco de dados MySQL através do JDBC.
+Implementação do padrão DAO.
 
-Leitura de configurações utilizando Properties.
+Separação entre interfaces e implementações JDBC.
 
-Gerenciamento de conexões com Connection.
+Utilização da DaoFactory para criação dos objetos DAO.
 
-Execução de comandos SQL com PreparedStatement.
+Busca de vendedores por ID (findById).
+
+Busca de vendedores por departamento (findByDepartment).
+
+Consulta de todos os vendedores (findAll).
+
+Cadastro de vendedores (insert).
+
+Atualização de vendedores (update).
+
+Exclusão de vendedores (deleteById).
+
+Relacionamento entre vendedores e departamentos.
 
 Tratamento de exceções personalizadas.
 
-Fechamento de recursos do banco de dados.
+Gerenciamento de conexões e recursos JDBC.
 
-Configuração do banco de dados
+Banco de dados
 
-Crie um banco de dados MySQL chamado coursejdbc.
+O projeto utiliza o MySQL com um banco de dados chamado coursejdbc.
 
-Exemplo de criação da tabela:
+São utilizadas duas tabelas principais:
 
-CREATE TABLE department (
-    Id INT NOT NULL AUTO_INCREMENT,
-    Name VARCHAR(60) NOT NULL,
-    PRIMARY KEY (Id)
-);
+Department
 
-Adicione os registros:
+Id
 
-INSERT INTO department (Name) VALUES
-('Computers'),
-('Electronics'),
-('Fashion'),
-('Books'),
-('Management');
+Name
 
-Configuração da conexão
+Seller
 
-Crie um arquivo chamado db.properties na raiz do projeto:
+Id
+
+Name
+
+Email
+
+BirthDate
+
+BaseSalary
+
+DepartmentId
+
+A tabela Seller possui uma chave estrangeira (DepartmentId) que estabelece o relacionamento com a tabela Department.
+
+Configuração
+
+Para executar o projeto, é necessário:
+
+Ter o Java JDK instalado.
+
+Ter o MySQL instalado e em execução.
+
+Criar o banco de dados coursejdbc.
+
+Criar as tabelas department e seller.
+
+Adicionar o MySQL Connector/J às bibliotecas do projeto.
+
+Configurar o arquivo db.properties com as credenciais do banco de dados.
+
+Exemplo de configuração:
 
 user=root
 password=sua_senha
 dburl=jdbc:mysql://localhost:3306/coursejdbc
 useSSL=false
 
-Substitua sua_senha pela senha do seu MySQL.
+Importante: o arquivo db.properties não deve ser enviado ao GitHub, pois contém informações de acesso ao banco de dados.
 
-Importante: o arquivo db.properties não é enviado ao GitHub, pois contém informações de acesso ao banco de dados.
+Objetivo do projeto
 
-Objetivo
+Este projeto faz parte da minha jornada de aprendizado em desenvolvimento Java, com foco em programação orientada a objetos, persistência de dados, integração com bancos relacionais e organização de aplicações utilizando o padrão DAO.
 
-Este projeto faz parte da minha jornada de aprendizado em Java, aprofundando conhecimentos em persistência de dados, JDBC e integração com bancos de dados relacionais.
+O desenvolvimento permite aplicar na prática conceitos importantes para a construção de aplicações Java conectadas a bancos de dados.
